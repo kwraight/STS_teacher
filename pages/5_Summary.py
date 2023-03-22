@@ -27,7 +27,7 @@ if st.checkbox("View disclaimer"):
 
 st.write("---")
 
-prelim_markdown = read_markdown_file(os.getcwd()+"/pages/md_philosophy.md")
+prelim_markdown = read_markdown_file(os.getcwd()+"/pages/md_summary.md")
 st.markdown(prelim_markdown, unsafe_allow_html=True)
 
 st.stop()
