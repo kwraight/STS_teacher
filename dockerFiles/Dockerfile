@@ -16,8 +16,8 @@ RUN pip3 install -r requirements.txt
 RUN mkdir ./STS_teacher
 RUN mkdir ./STS_teacher/pages
 # copy files
-COPY STS_teacher/* ./STS_teacher/
-COPY STS_teacher/pages/* ./STS_teacher/pages/
+COPY *.py ./STS_teacher/
+COPY pages/*.py ./STS_teacher/pages/
 
 # add user other than root (for cern deployment)
 RUN adduser appuser
