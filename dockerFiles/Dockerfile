@@ -17,7 +17,7 @@ RUN mkdir ./STS_teacher
 RUN mkdir ./STS_teacher/pages
 # copy files
 COPY *.py ./STS_teacher/
-COPY pages/*.py ./STS_teacher/pages/
+COPY pages/* ./STS_teacher/pages/
 
 # add user other than root (for cern deployment)
 RUN adduser appuser
@@ -28,10 +28,13 @@ RUN chmod 777 /code
 RUN chown -R appuser:appuser /tmp
 RUN chmod 777 /tmp
 
+
+WORKDIR /code/STS_teacher
+
 # exposing default port for streamlit
 EXPOSE 8501 
 
 # switch to appuser (for Cern)
 USER appuser
 
-CMD ["streamlit", "run", "STS_teacher/STS_teacher.py", "--server.port=8501"]
+CMD ["streamlit", "run", "STS_teacher.py", "--server.port=8501"]
